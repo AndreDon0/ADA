@@ -11,8 +11,8 @@ def neuron(function, inputs, weights, bias):
 
 
 n = int(input())
-W = list(map(float, input().split()))
-b = float(input())
-X = list(map(float, input().split()))
+W = list(map(int, input().split()))
+b = int(input())
+X = list(map(int, input().split()))
 
 print(neuron(relu, X, W, b))
