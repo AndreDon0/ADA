@@ -12,5 +12,5 @@ for i in range(w - n + 1):
                 s += convolution[i_t][j_t] * image[i + i_t][j + j_t]
         tensor[i][j] = s
 
-for i in range(h - m + 1):
-    print(" ".join(map(str, tensor[i])))
+for _ in tensor:
+    print(*_)
