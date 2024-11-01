@@ -2,7 +2,10 @@ import pandas as pd
 import sys
 
 df = pd.read_csv(sys.stdin)
-df['Domains'] = df['Domains'].fillna('').str.split(',')
-rating_strategies = df[df["Domains"] == "Strategy Games"]["Rating Average"]
-rating_strategies = rating_strategies.str.replace(',', '.', regex=False).astype(float)
-print(rating_strategies.dropna().mean())
+
+df["Rating Average"] = df["Rating Average"].str.replace(',', '.', regex=False).astype(float)
+
+strategy_games = df[df['Domains'].str.contains('Strategy Games', case=False, na=False)]
+average_rating = strategy_games['Rating Average'].mean()
+
+print(round(average_rating, 2))
