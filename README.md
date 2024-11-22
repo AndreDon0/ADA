@@ -40,3 +40,6 @@
 [4] [Как химические формулы преобразовать в цифры?](https://github.com/ShadarRim/dc2024/blob/main/n05_Cehm_Descr.ipynb) \
 [5] [Задачи машинного обучения на химических формулах](https://github.com/ShadarRim/dc2024/blob/main/n06_Chem_Catboost.ipynb) \
 [6] [Данные для химических материалов](https://github.com/ShadarRim/dc2024/blob/main/n07_data.xlsx) 
+
+### Для установки весех необходимых библиотек выполните:
+```python -m pip install -r requirements.txt```
