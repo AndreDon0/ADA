@@ -46,5 +46,5 @@
 [5] [Задачи машинного обучения на химических формулах](https://github.com/ShadarRim/dc2024/blob/main/n06_Chem_Catboost.ipynb) \
 [6] [Данные для химических материалов](https://github.com/ShadarRim/dc2024/blob/main/n07_data.xlsx) 
 
-### Для установки весех необходимых библиотек выполните:
+### Для установки всех необходимых библиотек выполните:
 ```python -m pip install -r requirements.txt```
