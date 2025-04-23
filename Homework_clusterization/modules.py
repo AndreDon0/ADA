@@ -1,9 +1,13 @@
 import pandas as pd
 
 
-def normalize_cluster_labels(cluster_series, column_name):
-    cluster_series[column_name] = pd.Series(pd.factorize(cluster_series[column_name])[0] + 1)
-    return cluster_series
+# Нормализация меток кластеров с сохранением индексов
+def normalize_cluster_labels(labels, index):
+    return pd.Series(
+        pd.factorize(labels)[0] + 1,
+        index=index,
+        name='activityID'
+    )
 
 
 def fulling_indexes(df):
@@ -19,6 +23,7 @@ def fulling_indexes(df):
     df_filled['activityID'] = df_filled['activityID'].fillna(1).astype(int)
     
     return df_filled
+
 
 if __name__ == "__main__":
     # Пример входных данных

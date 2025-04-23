@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import RobustScaler
 from sklearn.impute import SimpleImputer
@@ -8,6 +9,9 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 
 class GroupRobustScaler(BaseEstimator, TransformerMixin):
+    part = ["hand", "chest", "ankle"]
+    gear = ["Temperature", "Acc16", "Acc6", "Gyro", "Magne", "Orientation"]
+
     def __init__(self):
         self.scalers = {}
         self.group_imputer = SimpleImputer(strategy='median')
@@ -15,7 +19,8 @@ class GroupRobustScaler(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         self.scalers = {}
         groups = X['subject_id']
-        features = X.drop(columns=['subject_id', 'timestamp'])
+        drop = ['subject_id', 'timestamp']
+        features = X.drop(columns=drop)
         
         # Импутация и масштабирование для каждой группы
         for group in tqdm(groups.unique(), desc='Scaling groups'):
@@ -27,7 +32,8 @@ class GroupRobustScaler(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         groups = X['subject_id']
-        features = X.drop(columns=['subject_id', 'timestamp'])
+        drop = ['subject_id', 'timestamp']
+        features = X.drop(columns=drop)
         transformed = features.copy()
         
         for group in tqdm(groups.unique(), desc='Transforming groups'):
