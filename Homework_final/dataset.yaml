@@ -1,0 +1,7 @@
+path: where-are-the-seagulls/data
+train: train/images  # Will be regenerated each run
+val: val/images      # Changes every run
+test: test/images    # Fixed test set
+
+names:
+  0: seagulls
