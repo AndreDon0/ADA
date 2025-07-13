@@ -1,7 +1,7 @@
-path: where-are-the-seagulls/data
-train: train/images  # Will be regenerated each run
-val: val/images      # Changes every run
-test: test/images    # Fixed test set
+path: data
+train: train/images
+val: val/images
+test: test/images
 
 names:
   0: seagulls
